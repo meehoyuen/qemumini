@@ -68,10 +68,7 @@ QEMUOptionRom option_rom[MAX_OPTION_ROMS];
 int old_param = 0;
 unsigned int nb_prom_envs = 0;
 const char *prom_envs[MAX_PROM_ENVS];
-int boot_menu;
 uint8_t qemu_extra_params_fw[2];
-
-
 
 #include "hw.h"
 #include "pc.h"
@@ -979,69 +976,15 @@ void cpu_dump_state(CPUState *env);
 
 static RunState current_run_state = RUN_STATE_PRELAUNCH;
 
-typedef struct {
-    RunState from;
-    RunState to;
-} RunStateTransition;
-
-static const RunStateTransition runstate_transitions_def[] = {
-    /*     from      ->     to      */
-    { RUN_STATE_DEBUG, RUN_STATE_RUNNING },
-
-    { RUN_STATE_INTERNAL_ERROR, RUN_STATE_PAUSED },
-
-    { RUN_STATE_IO_ERROR, RUN_STATE_RUNNING },
-
-    { RUN_STATE_PAUSED, RUN_STATE_RUNNING },
-
-    { RUN_STATE_PRELAUNCH, RUN_STATE_RUNNING },
-
-
-    { RUN_STATE_RUNNING, RUN_STATE_DEBUG },
-    { RUN_STATE_RUNNING, RUN_STATE_INTERNAL_ERROR },
-    { RUN_STATE_RUNNING, RUN_STATE_IO_ERROR },
-    { RUN_STATE_RUNNING, RUN_STATE_PAUSED },
-
-    { RUN_STATE_RUNNING, RUN_STATE_SHUTDOWN },
-    { RUN_STATE_RUNNING, RUN_STATE_WATCHDOG },
-
-
-    { RUN_STATE_SHUTDOWN, RUN_STATE_PAUSED },
-
-    { RUN_STATE_WATCHDOG, RUN_STATE_RUNNING },
-
-    { RUN_STATE_MAX, RUN_STATE_MAX },
-};
-
-static bool runstate_valid_transitions[RUN_STATE_MAX][RUN_STATE_MAX];
-
 bool runstate_check(RunState state)
 {
     return current_run_state == state;
-}
-
-void runstate_init(void)
-{
-    const RunStateTransition *p;
-
-    memset(&runstate_valid_transitions, 0, sizeof(runstate_valid_transitions));
-
-    for (p = &runstate_transitions_def[0]; p->from != RUN_STATE_MAX; p++) {
-        runstate_valid_transitions[p->from][p->to] = true;
-    }
 }
 
 /* This function will abort() on invalid state transitions */
 void runstate_set(RunState new_state)
 {
     assert(new_state < RUN_STATE_MAX);
-
-    if (!runstate_valid_transitions[current_run_state][new_state]) {
-        fprintf(stderr, "ERROR: invalid runstate transition: '%s' -> '%s'\n",
-                RunState_lookup[current_run_state],
-                RunState_lookup[new_state]);
-        abort();
-    }
 
     current_run_state = new_state;
 }
@@ -4619,9 +4562,6 @@ int main(int argc, char **argv, char **envp)
     char boot_devices[33] = "cd"; /* default to HD->CD-ROM */
     DisplayState *ds;
     DisplayChangeListener *dcl;
-
-    //g_thread_init(NULL);
-    runstate_init();
 
     init_clocks();
     rtc_clock = host_clock;

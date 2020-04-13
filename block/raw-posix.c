@@ -21,15 +21,6 @@
 #define DEBUG_BLOCK_PRINT(formatCstr, ...)
 #endif
 
-/* OS X does not have O_DSYNC */
-#ifndef O_DSYNC
-#ifdef O_SYNC
-#define O_DSYNC O_SYNC
-#elif defined(O_FSYNC)
-#define O_DSYNC O_FSYNC
-#endif
-#endif
-
 /* Approximate O_DIRECT with O_DSYNC if O_DIRECT isn't available */
 #ifndef O_DIRECT
 #define O_DIRECT O_DSYNC
@@ -55,10 +46,6 @@ typedef struct BDRVRawState {
     int64_t fd_error_time;
     int fd_got_error;
     int fd_media_changed;
-#ifdef CONFIG_LINUX_AIO
-    int use_aio;
-    void *aio_ctx;
-#endif
     uint8_t *aligned_buf;
     unsigned aligned_buf_size;
 } BDRVRawState;
@@ -116,27 +103,6 @@ static int raw_open_common(BlockDriverState *bs, const char *filename,
         goto out_free_buf;
     }
 
-#ifdef CONFIG_LINUX_AIO
-    /*
-     * Currently Linux do AIO only for files opened with O_DIRECT
-     * specified so check NOCACHE flag too
-     */
-    if ((bdrv_flags & (BDRV_O_NOCACHE|BDRV_O_NATIVE_AIO)) ==
-                      (BDRV_O_NOCACHE|BDRV_O_NATIVE_AIO)) {
-
-        s->aio_ctx = laio_init();
-        if (!s->aio_ctx) {
-            goto out_free_buf;
-        }
-        s->use_aio = 1;
-    } else
-#endif
-    {
-#ifdef CONFIG_LINUX_AIO
-        s->use_aio = 0;
-#endif
-    }
-
     return 0;
 
 out_free_buf:
@@ -153,23 +119,6 @@ static int raw_open(BlockDriverState *bs, const char *filename, int flags)
     s->type = FTYPE_FILE;
     return raw_open_common(bs, filename, flags, 0);
 }
-
-/* XXX: use host sector size if necessary with:
-#ifdef DIOCGSECTORSIZE
-        {
-            unsigned int sectorsize = 512;
-            if (!ioctl(fd, DIOCGSECTORSIZE, &sectorsize) &&
-                sectorsize > bufsize)
-                bufsize = sectorsize;
-        }
-#endif
-#ifdef CONFIG_COCOA
-        uint32_t blockSize = 512;
-        if ( !ioctl( fd, DKIOCGETBLOCKSIZE, &blockSize ) && blockSize > bufsize) {
-            bufsize = blockSize;
-        }
-#endif
-*/
 
 /*
  * Check if all memory in this vector is sector aligned.
@@ -204,11 +153,6 @@ static BlockDriverAIOCB *raw_aio_submit(BlockDriverState *bs,
     if (s->aligned_buf) {
         if (!qiov_is_aligned(bs, qiov)) {
             type |= QEMU_AIO_MISALIGNED;
-#ifdef CONFIG_LINUX_AIO
-        } else if (s->use_aio) {
-            return laio_submit(bs, s->aio_ctx, s->fd, sector_num, qiov,
-                               nb_sectors, cb, opaque, type);
-#endif
         }
     }
 

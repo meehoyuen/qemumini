@@ -286,7 +286,7 @@ FWCfgState *fw_cfg_init(uint32_t ctl_port, uint32_t data_port,
     fw_cfg_add_i16(s, FW_CFG_NOGRAPHIC, (uint16_t)0);
     fw_cfg_add_i16(s, FW_CFG_NB_CPUS, (uint16_t)smp_cpus);
     fw_cfg_add_i16(s, FW_CFG_MAX_CPUS, (uint16_t)max_cpus);
-    fw_cfg_add_i16(s, FW_CFG_BOOT_MENU, (uint16_t)boot_menu);
+    fw_cfg_add_i16(s, FW_CFG_BOOT_MENU, (uint16_t)0);
 
     s->machine_ready.notify = fw_cfg_machine_ready;
     qemu_add_machine_init_done_notifier(&s->machine_ready);

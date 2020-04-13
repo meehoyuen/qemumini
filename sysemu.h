@@ -89,7 +89,6 @@ extern int graphic_rotate;
 extern int no_shutdown;
 extern int semihosting_enabled;
 extern int old_param;
-extern int boot_menu;
 extern uint8_t qemu_extra_params_fw[2];
 extern QEMUClock *rtc_clock;
 

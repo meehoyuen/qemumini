@@ -2,22 +2,6 @@
 #include "block_int.h"
 #include "block/qcow2.h"
 
-/*
-  Differences with QCOW:
-
-  - Support for multiple incremental snapshots.
-  - Memory management by reference counts.
-  - Clusters which have a reference count of one have the bit
-    QCOW_OFLAG_COPIED to optimize write performance.
-  - Size of compressed clusters is stored in sectors to reduce bit usage
-    in the cluster offsets.
-  - Support for storing additional data (such as the VM state) in the
-    snapshots.
-  - If a backing store is used, the cluster size is not constrained
-    (could be backported to QCOW).
-  - L2 tables have always a size of one cluster.
-*/
-
 typedef struct {
     uint32_t magic;
     uint32_t len;
@@ -241,12 +225,6 @@ static int qcow2_open(BlockDriverState *bs, int flags)
     /* Initialise locks */
     qemu_co_mutex_init(&s->lock);
 
-#ifdef DEBUG_ALLOC
-    {
-        BdrvCheckResult result = {0};
-        qcow2_check_refcounts(bs, &result);
-    }
-#endif
     return ret;
 
  fail:

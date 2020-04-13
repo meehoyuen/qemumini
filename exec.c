@@ -10,19 +10,15 @@
 #include "memory.h"
 #include "exec-memory.h"
 
-//#define DEBUG_TB_INVALIDATE
-//#define DEBUG_FLUSH
 //#define DEBUG_TLB
 //#define DEBUG_UNASSIGNED
 
 /* make various TB consistency checks */
-//#define DEBUG_TB_CHECK
 //#define DEBUG_TLB_CHECK
 
 //#define DEBUG_IOPORT
 //#define DEBUG_SUBPAGE
 
-#undef DEBUG_TB_CHECK
 #define SMC_BITMAP_USE_THRESHOLD 10
 
 static TranslationBlock *tbs;
@@ -705,9 +701,6 @@ void tb_link_page(TranslationBlock *tb,
     if (tb->tb_next_offset[1] != 0xffff)
         tb_reset_jump(tb, 1);
 
-#ifdef DEBUG_TB_CHECK
-    tb_page_check();
-#endif
     mmap_unlock();
 }
 

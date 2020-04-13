@@ -26,10 +26,6 @@ int qcow2_grow_l1_table(BlockDriverState *bs, int min_size, bool exact_size)
         }
     }
 
-#ifdef DEBUG_ALLOC2
-    fprintf(stderr, "grow l1_table from %d to %d\n", s->l1_size, new_l1_size);
-#endif
-
     new_l1_size2 = sizeof(uint64_t) * new_l1_size;
     new_l1_table = calloc(1, align_offset(new_l1_size2, 512));
     memcpy(new_l1_table, s->l1_table, s->l1_size * sizeof(uint64_t));
