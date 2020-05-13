@@ -8,7 +8,8 @@
 #include <errno.h>
 #include "qemu-queue.h"
 
-#include <linux/kvm.h>
+#include "linux/kvm.h"
+#include "linux/kvm_para.h"
 
 struct kvm_run;
 

@@ -642,7 +642,8 @@ uint32_t pci_host_config_read_common(PCIDevice *pci_dev, uint32_t addr,
 
 void pci_data_write(PCIBus *s, uint32_t addr, uint32_t val, int len);
 uint32_t pci_data_read(PCIBus *s, uint32_t addr, int len);
-
+PCIDevice *pci_nic_init(NICInfo *nd, const char *model,
+                        const char *default_devaddr);
 extern const MemoryRegionOps pci_host_conf_le_ops;
 extern const MemoryRegionOps pci_host_data_le_ops;
 #endif

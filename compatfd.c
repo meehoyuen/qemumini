@@ -17,6 +17,8 @@
 #include <sys/syscall.h>
 #include <pthread.h>
 
+#define __NR_signalfd        282
+
 struct sigfd_compat_info
 {
     sigset_t mask;

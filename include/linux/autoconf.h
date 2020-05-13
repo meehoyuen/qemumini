@@ -1,0 +1,616 @@
+/*
+ * Automatically generated C config: don't edit
+ * Linux kernel version: 2.6.15
+ * Tue May 12 23:25:19 2020
+ */
+#define AUTOCONF_INCLUDED
+#define CONFIG_X86_64 1
+#define CONFIG_64BIT 1
+#define CONFIG_X86 1
+#define CONFIG_SEMAPHORE_SLEEPERS 1
+#define CONFIG_MMU 1
+#define CONFIG_RWSEM_GENERIC_SPINLOCK 1
+#define CONFIG_GENERIC_CALIBRATE_DELAY 1
+#define CONFIG_X86_CMPXCHG 1
+#define CONFIG_EARLY_PRINTK 1
+#define CONFIG_GENERIC_ISA_DMA 1
+#define CONFIG_GENERIC_IOMAP 1
+#define CONFIG_ARCH_MAY_HAVE_PC_FDC 1
+
+/*
+ * Code maturity level options
+ */
+#define CONFIG_EXPERIMENTAL 1
+#define CONFIG_CLEAN_COMPILE 1
+#define CONFIG_LOCK_KERNEL 1
+#define CONFIG_INIT_ENV_ARG_LIMIT 32
+
+/*
+ * General setup
+ */
+#define CONFIG_LOCALVERSION ""
+#define CONFIG_LOCALVERSION_AUTO 1
+#define CONFIG_SWAP 1
+#define CONFIG_SYSVIPC 1
+#define CONFIG_POSIX_MQUEUE 1
+#undef CONFIG_BSD_PROCESS_ACCT
+#define CONFIG_SYSCTL 1
+#undef CONFIG_AUDIT
+#define CONFIG_HOTPLUG 1
+#define CONFIG_KOBJECT_UEVENT 1
+#define CONFIG_IKCONFIG 1
+#define CONFIG_IKCONFIG_PROC 1
+#undef CONFIG_CPUSETS
+#define CONFIG_INITRAMFS_SOURCE ""
+#define CONFIG_CC_OPTIMIZE_FOR_SIZE 1
+#undef CONFIG_EMBEDDED
+#define CONFIG_KALLSYMS 1
+#define CONFIG_KALLSYMS_ALL 1
+#undef CONFIG_KALLSYMS_EXTRA_PASS
+#define CONFIG_PRINTK 1
+#define CONFIG_BUG 1
+#define CONFIG_BASE_FULL 1
+#define CONFIG_FUTEX 1
+#define CONFIG_EPOLL 1
+#define CONFIG_SHMEM 1
+#define CONFIG_CC_ALIGN_FUNCTIONS 0
+#define CONFIG_CC_ALIGN_LABELS 0
+#define CONFIG_CC_ALIGN_LOOPS 0
+#define CONFIG_CC_ALIGN_JUMPS 0
+#undef CONFIG_TINY_SHMEM
+#define CONFIG_BASE_SMALL 0
+
+/*
+ * Loadable module support
+ */
+#define CONFIG_MODULES 1
+#define CONFIG_MODULE_UNLOAD 1
+#define CONFIG_MODULE_FORCE_UNLOAD 1
+#define CONFIG_OBSOLETE_MODPARM 1
+#undef CONFIG_MODVERSIONS
+#undef CONFIG_MODULE_SRCVERSION_ALL
+#undef CONFIG_KMOD
+#define CONFIG_STOP_MACHINE 1
+
+/*
+ * Block layer
+ */
+#define CONFIG_LBD 1
+
+/*
+ * IO Schedulers
+ */
+#define CONFIG_IOSCHED_NOOP 1
+#undef CONFIG_IOSCHED_AS
+#define CONFIG_IOSCHED_DEADLINE 1
+#define CONFIG_IOSCHED_CFQ 1
+#undef CONFIG_DEFAULT_AS
+#define CONFIG_DEFAULT_DEADLINE 1
+#undef CONFIG_DEFAULT_CFQ
+#undef CONFIG_DEFAULT_NOOP
+#define CONFIG_DEFAULT_IOSCHED "deadline"
+
+/*
+ * Processor type and features
+ */
+#undef CONFIG_MK8
+#undef CONFIG_MPSC
+#define CONFIG_GENERIC_CPU 1
+#define CONFIG_X86_64_NOLONG_MSG "Your CPU does not support long mode. Use a 32bit distribution."
+#define CONFIG_X86_L1_CACHE_BYTES 128
+#define CONFIG_X86_L1_CACHE_SHIFT 7
+#define CONFIG_X86_TSC 1
+#define CONFIG_X86_GOOD_APIC 1
+#undef CONFIG_MICROCODE
+#define CONFIG_X86_MSR 1
+#define CONFIG_X86_CPUID 1
+#define CONFIG_X86_HT 1
+#define CONFIG_X86_IO_APIC 1
+#define CONFIG_X86_LOCAL_APIC 1
+#define CONFIG_MTRR 1
+#define CONFIG_SMP 1
+#define CONFIG_SCHED_SMT 1
+#undef CONFIG_ENABLE_ALT_SMP
+#define CONFIG_PREEMPT_NONE 1
+#undef CONFIG_PREEMPT_VOLUNTARY
+#undef CONFIG_PREEMPT
+#define CONFIG_PREEMPT_BKL 1
+#define CONFIG_NUMA 1
+#define CONFIG_K8_NUMA 1
+#define CONFIG_X86_64_ACPI_NUMA 1
+#undef CONFIG_NUMA_EMU
+#define CONFIG_ARCH_DISCONTIGMEM_ENABLE 1
+#define CONFIG_ARCH_DISCONTIGMEM_DEFAULT 1
+#define CONFIG_ARCH_SPARSEMEM_ENABLE 1
+#define CONFIG_SELECT_MEMORY_MODEL 1
+#undef CONFIG_FLATMEM_MANUAL
+#define CONFIG_DISCONTIGMEM_MANUAL 1
+#undef CONFIG_SPARSEMEM_MANUAL
+#define CONFIG_DISCONTIGMEM 1
+#define CONFIG_FLAT_NODE_MEM_MAP 1
+#define CONFIG_NEED_MULTIPLE_NODES 1
+#undef CONFIG_SPARSEMEM_STATIC
+#define CONFIG_SPLIT_PTLOCK_CPUS 4
+#define CONFIG_HAVE_ARCH_EARLY_PFN_TO_NID 1
+#define CONFIG_NR_CPUS 32
+#define CONFIG_HOTPLUG_CPU 1
+#define CONFIG_HPET_TIMER 1
+#define CONFIG_X86_PM_TIMER 1
+#define CONFIG_HPET_EMULATE_RTC 1
+#define CONFIG_GART_IOMMU 1
+#define CONFIG_SWIOTLB 1
+#define CONFIG_X86_MCE 1
+#define CONFIG_X86_MCE_INTEL 1
+#define CONFIG_X86_MCE_AMD 1
+#define CONFIG_PHYSICAL_START 0x100000
+#undef CONFIG_KEXEC
+#define CONFIG_SECCOMP 1
+#undef CONFIG_HZ_100
+#define CONFIG_HZ_250 1
+#undef CONFIG_HZ_1000
+#define CONFIG_HZ 250
+#define CONFIG_GENERIC_HARDIRQS 1
+#define CONFIG_GENERIC_IRQ_PROBE 1
+#define CONFIG_ISA_DMA_API 1
+#define CONFIG_GENERIC_PENDING_IRQ 1
+
+/*
+ * Power management options
+ */
+#define CONFIG_PM 1
+#define CONFIG_PM_LEGACY 1
+#undef CONFIG_PM_DEBUG
+#define CONFIG_SOFTWARE_SUSPEND 1
+#define CONFIG_PM_STD_PARTITION ""
+#define CONFIG_SUSPEND_SMP 1
+
+/*
+ * ACPI (Advanced Configuration and Power Interface) Support
+ */
+#define CONFIG_ACPI 1
+#define CONFIG_ACPI_SLEEP 1
+#define CONFIG_ACPI_SLEEP_PROC_FS 1
+#define CONFIG_ACPI_SLEEP_PROC_SLEEP 1
+#define CONFIG_ACPI_BUTTON 1
+#undef CONFIG_ACPI_VIDEO
+#define CONFIG_ACPI_HOTKEY_MODULE 1
+#define CONFIG_ACPI_FAN 1
+#define CONFIG_ACPI_PROCESSOR 1
+#define CONFIG_ACPI_HOTPLUG_CPU 1
+#define CONFIG_ACPI_THERMAL 1
+#define CONFIG_ACPI_NUMA 1
+#undef CONFIG_ACPI_DEBUG
+#define CONFIG_ACPI_EC 1
+#define CONFIG_ACPI_POWER 1
+#define CONFIG_ACPI_SYSTEM 1
+#define CONFIG_ACPI_CONTAINER 1
+#define CONFIG_ACPI_DEV_MODULE 1
+
+/*
+ * CPU Frequency scaling
+ */
+#define CONFIG_CPU_FREQ 1
+#define CONFIG_CPU_FREQ_TABLE 1
+#undef CONFIG_CPU_FREQ_DEBUG
+#define CONFIG_CPU_FREQ_STAT 1
+#undef CONFIG_CPU_FREQ_STAT_DETAILS
+#define CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE 1
+#undef CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE
+#define CONFIG_CPU_FREQ_GOV_PERFORMANCE 1
+#undef CONFIG_CPU_FREQ_GOV_POWERSAVE
+#define CONFIG_CPU_FREQ_GOV_USERSPACE 1
+#define CONFIG_CPU_FREQ_GOV_ONDEMAND 1
+#undef CONFIG_CPU_FREQ_GOV_CONSERVATIVE
+
+/*
+ * CPUFreq processor drivers
+ */
+#define CONFIG_X86_POWERNOW_K8 1
+#define CONFIG_X86_POWERNOW_K8_ACPI 1
+#undef CONFIG_X86_SPEEDSTEP_CENTRINO
+#define CONFIG_X86_ACPI_CPUFREQ 1
+
+/*
+ * shared options
+ */
+#define CONFIG_X86_ACPI_CPUFREQ_PROC_INTF 1
+#undef CONFIG_X86_SPEEDSTEP_LIB
+
+/*
+ * Bus options (PCI etc.)
+ */
+#define CONFIG_PCI 1
+#define CONFIG_PCI_DIRECT 1
+#define CONFIG_PCI_MMCONFIG 1
+#define CONFIG_UNORDERED_IO 1
+#define CONFIG_PCI_MSI 1
+#undef CONFIG_PCI_LEGACY_PROC
+#undef CONFIG_PCI_DEBUG
+
+/*
+ * Executable file formats / Emulations
+ */
+#define CONFIG_BINFMT_ELF 1
+#define CONFIG_IA32_EMULATION 1
+#define CONFIG_IA32_AOUT 1
+#define CONFIG_COMPAT 1
+#define CONFIG_SYSVIPC_COMPAT 1
+#define CONFIG_UID16 1
+
+/*
+ * Networking
+ */
+#define CONFIG_NET 1
+
+/*
+ * Networking options
+ */
+#define CONFIG_PACKET 1
+#undef CONFIG_PACKET_MMAP
+#define CONFIG_UNIX 1
+#define CONFIG_INET 1
+#define CONFIG_IP_MULTICAST 1
+#undef CONFIG_IP_ADVANCED_ROUTER
+#define CONFIG_IP_FIB_HASH 1
+#define CONFIG_IP_PNP 1
+#define CONFIG_IP_PNP_DHCP 1
+#undef CONFIG_IP_PNP_BOOTP
+#undef CONFIG_IP_PNP_RARP
+#undef CONFIG_NET_IPIP
+#undef CONFIG_NET_IPGRE
+#undef CONFIG_IP_MROUTE
+#undef CONFIG_ARPD
+#define CONFIG_INET_DIAG 1
+#define CONFIG_INET_TCP_DIAG 1
+#undef CONFIG_TCP_CONG_ADVANCED
+#define CONFIG_TCP_CONG_BIC 1
+#define CONFIG_IPV6 1
+#undef CONFIG_NET_DIVERT
+
+/*
+ * QoS and/or fair queueing
+ */
+#undef CONFIG_NET_SCHED
+
+/*
+ * Network testing
+ */
+#undef CONFIG_NET_PKTGEN
+
+/*
+ * Device Drivers
+ */
+
+/*
+ * Generic Driver Options
+ */
+#define CONFIG_STANDALONE 1
+#define CONFIG_PREVENT_FIRMWARE_BUILD 1
+#undef CONFIG_FW_LOADER
+#undef CONFIG_DEBUG_DRIVER
+
+/*
+ * Block devices
+ */
+#define CONFIG_BLK_DEV_FD 1
+#define CONFIG_BLK_DEV_LOOP 1
+#define CONFIG_BLK_DEV_RAM 1
+#define CONFIG_BLK_DEV_RAM_COUNT 16
+#define CONFIG_BLK_DEV_RAM_SIZE 4096
+#define CONFIG_BLK_DEV_INITRD 1
+
+/*
+ * ATA/ATAPI/MFM/RLL support
+ */
+#define CONFIG_IDE 1
+#define CONFIG_BLK_DEV_IDE 1
+
+/*
+ * Please see Documentation/ide.txt for help/info on IDE drives
+ */
+#define CONFIG_BLK_DEV_IDEDISK 1
+#define CONFIG_IDEDISK_MULTI_MODE 1
+#define CONFIG_BLK_DEV_IDECD 1
+
+/*
+ * IDE chipset support/bugfixes
+ */
+#define CONFIG_IDE_GENERIC 1
+#define CONFIG_BLK_DEV_IDEPCI 1
+#define CONFIG_BLK_DEV_IDEDMA_PCI 1
+#define CONFIG_IDEDMA_PCI_AUTO 1
+#define CONFIG_BLK_DEV_AMD74XX 1
+#define CONFIG_BLK_DEV_PIIX 1
+#define CONFIG_BLK_DEV_PDC202XX_NEW 1
+#define CONFIG_BLK_DEV_IDEDMA 1
+#define CONFIG_IDEDMA_AUTO 1
+
+/*
+ * SCSI device support
+ */
+#undef CONFIG_RAID_ATTRS
+#define CONFIG_SCSI 1
+
+/*
+ * SCSI support type (disk, tape, CD-ROM)
+ */
+#define CONFIG_BLK_DEV_SD 1
+
+/*
+ * SCSI Transport Attributes
+ */
+#define CONFIG_SCSI_SPI_ATTRS 1
+#define CONFIG_SCSI_SPI2_ATTRS 1
+
+/*
+ * SCSI low-level drivers
+ */
+#define CONFIG_SCSI_SATA 1
+#define CONFIG_SCSI_ATA_PIIX 1
+#define CONFIG_SCSI_SATA_NV 1
+#define CONFIG_SCSI_SATA_VIA 1
+#define CONFIG_SCSI_SATA_INTEL_COMBINED 1
+#define CONFIG_SCSI_SATA_ACPI 1
+
+/*
+ * Multi-device support (RAID and LVM)
+ */
+#define CONFIG_MD 1
+#undef CONFIG_BLK_DEV_MD
+#define CONFIG_BLK_DEV_DM 1
+#undef CONFIG_DM_SNAPSHOT
+#undef CONFIG_DM_MIRROR
+#undef CONFIG_DM_ZERO
+#undef CONFIG_DM_MULTIPATH
+
+/*
+ * Fusion MPT device support
+ */
+#define CONFIG_FUSION 1
+#define CONFIG_FUSION_SPI 1
+#define CONFIG_FUSION_MAX_SGE 128
+
+/*
+ * Network device support
+ */
+
+/*
+ * Ethernet (1000 Mbit)
+ */
+#define CONFIG_E1000 1
+
+/*
+ * Input device support
+ */
+#define CONFIG_INPUT 1
+
+/*
+ * Userland interfaces
+ */
+#define CONFIG_INPUT_MOUSEDEV 1
+#define CONFIG_INPUT_MOUSEDEV_PSAUX 1
+#define CONFIG_INPUT_MOUSEDEV_SCREEN_X 1024
+#define CONFIG_INPUT_MOUSEDEV_SCREEN_Y 768
+#define CONFIG_INPUT_EVDEV 1
+
+/*
+ * Input Device Drivers
+ */
+#define CONFIG_INPUT_KEYBOARD 1
+#define CONFIG_KEYBOARD_ATKBD 1
+#define CONFIG_INPUT_MOUSE 1
+#define CONFIG_MOUSE_PS2 1
+
+/*
+ * Hardware I/O ports
+ */
+#define CONFIG_SERIO 1
+#define CONFIG_SERIO_I8042 1
+#define CONFIG_SERIO_LIBPS2 1
+
+/*
+ * Character devices
+ */
+#define CONFIG_VT 1
+#define CONFIG_VT_CONSOLE 1
+#define CONFIG_HW_CONSOLE 1
+
+/*
+ * Serial drivers
+ */
+#define CONFIG_SERIAL_8250 1
+#define CONFIG_SERIAL_8250_CONSOLE 1
+#define CONFIG_SERIAL_CORE 1
+#define CONFIG_SERIAL_CORE_CONSOLE 1
+#define CONFIG_UNIX98_PTYS 1
+#define CONFIG_LEGACY_PTYS 1
+#define CONFIG_LEGACY_PTY_COUNT 256
+
+/*
+ * Watchdog Cards
+ */
+#define CONFIG_WATCHDOG 1
+
+/*
+ * Watchdog Device Drivers
+ */
+#define CONFIG_SOFT_WATCHDOG 1
+#define CONFIG_HW_RANDOM 1
+#undef CONFIG_NVRAM
+#define CONFIG_RTC 1
+#define CONFIG_AGP 1
+#define CONFIG_AGP_AMD64 1
+#define CONFIG_AGP_INTEL 1
+#define CONFIG_RAW_DRIVER 1
+#define CONFIG_MAX_RAW_DEVS 256
+#define CONFIG_HPET 1
+#define CONFIG_HPET_MMAP 1
+
+/*
+ * Hardware Monitoring support
+ */
+#define CONFIG_HWMON 1
+
+/*
+ * Graphics support
+ */
+#undef CONFIG_FB
+
+/*
+ * Console display driver support
+ */
+#define CONFIG_VGA_CONSOLE 1
+#define CONFIG_VIDEO_SELECT 1
+#define CONFIG_DUMMY_CONSOLE 1
+
+/*
+ * Sound
+ */
+#define CONFIG_SOUND 1
+
+/*
+ * Advanced Linux Sound Architecture
+ */
+#undef CONFIG_SND
+
+/*
+ * USB support
+ */
+#define CONFIG_USB_ARCH_HAS_HCD 1
+#define CONFIG_USB_ARCH_HAS_OHCI 1
+#define CONFIG_USB 1
+#undef CONFIG_USB_DEBUG
+
+/*
+ * Miscellaneous USB options
+ */
+#define CONFIG_USB_DEVICEFS 1
+
+/*
+ * USB Host Controller Drivers
+ */
+#define CONFIG_USB_EHCI_HCD 1
+#define CONFIG_USB_OHCI_HCD 1
+#define CONFIG_USB_OHCI_LITTLE_ENDIAN 1
+#define CONFIG_USB_UHCI_HCD 1
+
+/*
+ * NOTE: USB_STORAGE enables SCSI, and 'SCSI disk support'
+ */
+#define CONFIG_USB_STORAGE 1
+
+/*
+ * USB Input Devices
+ */
+#define CONFIG_USB_HID 1
+#define CONFIG_USB_HIDINPUT 1
+
+/*
+ * USB port drivers
+ */
+
+/*
+ * File systems
+ */
+#define CONFIG_EXT2_FS 1
+#define CONFIG_EXT2_FS_XATTR 1
+#define CONFIG_EXT2_FS_POSIX_ACL 1
+#define CONFIG_EXT3_FS 1
+#define CONFIG_EXT3_FS_XATTR 1
+#define CONFIG_EXT3_FS_POSIX_ACL 1
+#define CONFIG_JBD 1
+#undef CONFIG_JBD_DEBUG
+#define CONFIG_FS_MBCACHE 1
+#define CONFIG_FS_POSIX_ACL 1
+#define CONFIG_INOTIFY 1
+#define CONFIG_DNOTIFY 1
+#define CONFIG_AUTOFS_FS 1
+#define CONFIG_AUTOFS4_FS 1
+
+/*
+ * CD-ROM/DVD Filesystems
+ */
+#define CONFIG_ISO9660_FS 1
+#define CONFIG_JOLIET 1
+
+/*
+ * Pseudo filesystems
+ */
+#define CONFIG_PROC_FS 1
+#define CONFIG_PROC_KCORE 1
+#define CONFIG_SYSFS 1
+#define CONFIG_TMPFS 1
+#define CONFIG_HUGETLBFS 1
+#define CONFIG_HUGETLB_PAGE 1
+#define CONFIG_RAMFS 1
+#define CONFIG_RELAYFS_FS 1
+
+/*
+ * Network File Systems
+ */
+#define CONFIG_NFS_FS 1
+#define CONFIG_NFS_V3 1
+#undef CONFIG_NFS_V3_ACL
+#define CONFIG_NFSD 1
+#define CONFIG_NFSD_V3 1
+#define CONFIG_NFSD_TCP 1
+#define CONFIG_ROOT_NFS 1
+#define CONFIG_LOCKD 1
+#define CONFIG_LOCKD_V4 1
+#define CONFIG_EXPORTFS 1
+#define CONFIG_SUNRPC 1
+
+/*
+ * Partition Types
+ */
+#undef CONFIG_PARTITION_ADVANCED
+#define CONFIG_MSDOS_PARTITION 1
+
+/*
+ * Native Language Support
+ */
+#define CONFIG_NLS 1
+#define CONFIG_NLS_DEFAULT "iso8859-1"
+#define CONFIG_NLS_ASCII 1
+#define CONFIG_NLS_ISO8859_1 1
+#define CONFIG_NLS_UTF8 1
+
+/*
+ * Instrumentation Support
+ */
+#define CONFIG_PROFILING 1
+#define CONFIG_OPROFILE 1
+#define CONFIG_KPROBES 1
+
+/*
+ * Kernel hacking
+ */
+#undef CONFIG_PRINTK_TIME
+#define CONFIG_DEBUG_KERNEL 1
+#define CONFIG_MAGIC_SYSRQ 1
+#define CONFIG_LOG_BUF_SHIFT 18
+#define CONFIG_DETECT_SOFTLOCKUP 1
+#undef CONFIG_SCHEDSTATS
+#undef CONFIG_DEBUG_SLAB
+#undef CONFIG_DEBUG_SPINLOCK
+#undef CONFIG_DEBUG_SPINLOCK_SLEEP
+#undef CONFIG_DEBUG_KOBJECT
+#undef CONFIG_DEBUG_INFO
+#define CONFIG_DEBUG_FS 1
+#undef CONFIG_DEBUG_VM
+#undef CONFIG_FRAME_POINTER
+#define CONFIG_INIT_DEBUG 1
+#undef CONFIG_IOMMU_DEBUG
+#define CONFIG_HAVE_KVM_IRQCHIP 1
+#define CONFIG_VIRTUALIZATION 1
+#define CONFIG_KVM 1
+#define CONFIG_KVM_INTEL 1
+
+/*
+ * Security options
+ */
+
+/*
+ * Library routines
+ */
+#define CONFIG_CRC32 1

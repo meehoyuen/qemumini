@@ -21,7 +21,7 @@ GLIB_CFLAGS=-pthread
 MAKE=make
 CC=gcc
 LD=ld
-CFLAGS=-O2 -g -Wall
+CFLAGS=-O2 -g -Wall -Iinclude
 QEMU_CFLAGS=-m64 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wredundant-decls -Wundef -Wwrite-strings -fno-strict-aliasing  -fstack-protector-all -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits
 QEMU_INCLUDES=-I. 
 LDFLAGS=-Wl,--warn-common -m64 -g
