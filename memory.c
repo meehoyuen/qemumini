@@ -363,8 +363,8 @@ static void as_memory_ioeventfd_add(AddressSpace *as, MemoryRegionIoeventfd *fd)
 
     assert(fd->match_data && int128_get64(fd->addr.size) == 4);
 
-    r = kvm_set_ioeventfd_mmio_long(fd->fd, int128_get64(fd->addr.start),
-                                    fd->data, true);
+    r = 0;//kvm_set_ioeventfd_mmio_long(fd->fd, int128_get64(fd->addr.start),
+                                    //fd->data, true);
     if (r < 0) {
         abort();
     }
@@ -374,8 +374,8 @@ static void as_memory_ioeventfd_del(AddressSpace *as, MemoryRegionIoeventfd *fd)
 {
     int r;
 
-    r = kvm_set_ioeventfd_mmio_long(fd->fd, int128_get64(fd->addr.start),
-                                    fd->data, false);
+    r = 0;//kvm_set_ioeventfd_mmio_long(fd->fd, int128_get64(fd->addr.start),
+                                    //fd->data, false);
     if (r < 0) {
         abort();
     }
@@ -485,8 +485,8 @@ static void as_io_ioeventfd_add(AddressSpace *as, MemoryRegionIoeventfd *fd)
 
     assert(fd->match_data && int128_get64(fd->addr.size) == 2);
 
-    r = kvm_set_ioeventfd_pio_word(fd->fd, int128_get64(fd->addr.start),
-                                   fd->data, true);
+    r = 0;//kvm_set_ioeventfd_pio_word(fd->fd, int128_get64(fd->addr.start),
+                                   //fd->data, true);
     if (r < 0) {
         abort();
     }
@@ -496,8 +496,8 @@ static void as_io_ioeventfd_del(AddressSpace *as, MemoryRegionIoeventfd *fd)
 {
     int r;
 
-    r = kvm_set_ioeventfd_pio_word(fd->fd, int128_get64(fd->addr.start),
-                                   fd->data, false);
+    r = 0;//kvm_set_ioeventfd_pio_word(fd->fd, int128_get64(fd->addr.start),
+                                   //fd->data, false);
     if (r < 0) {
         abort();
     }

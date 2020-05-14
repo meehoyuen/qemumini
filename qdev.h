@@ -298,6 +298,8 @@ void qdev_prop_set_drive_nofail(DeviceState *dev, const char *name, BlockDriverS
 void qdev_prop_set_macaddr(DeviceState *dev, const char *name, uint8_t *value);
 void qdev_prop_set_ptr(DeviceState *dev, const char *name, void *value);
 void qdev_prop_set_defaults(DeviceState *dev, Property *props);
+void qdev_prop_set_netdev(DeviceState *dev, const char *name, VLANClientState *value);
+void qdev_prop_set_vlan(DeviceState *dev, const char *name, VLANState *value);
 
 static inline const char *qdev_fw_name(DeviceState *dev)
 {

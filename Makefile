@@ -78,7 +78,7 @@ libobj-y = exec.o softfloat.o helper.o cpuid.o
 obj-y = cpus.o ioport.o memory.o
 obj-i386-y += vga.o mc146818rtc.o apic.o ioapic.o piix_pci.o smbios.o
 
-LIBS+=-lz -lm -lrt -lpthread
+LIBS+=-lm -lrt -lpthread
 
 qemu: $(coroutine-obj-y) $(oslib-obj-y) $(block-obj-y) $(hw-obj-y) $(libobj-y) $(common-obj-y) $(obj-y) $(obj-i386-y) $(tools-obj-y) $(net-obj-y)
 	$(CC) -o $@ $^ $(LIBS)

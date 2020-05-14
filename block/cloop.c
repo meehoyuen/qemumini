@@ -67,7 +67,7 @@ static int cloop_open(BlockDriverState *bs, int flags)
     /* initialize zlib engine */
     s->compressed_block = malloc(max_compressed_block_size + 1);
     s->uncompressed_block = malloc(s->block_size);
-    if (inflateInit(&s->zstream) != Z_OK) {
+    if (0/*inflateInit(&s->zstream) != Z_OK*/) {
         goto cloop_close;
     }
     s->current_block = s->n_blocks;
@@ -98,11 +98,11 @@ static inline int cloop_read_block(BlockDriverState *bs, int block_num)
         s->zstream.avail_in = bytes;
         s->zstream.next_out = s->uncompressed_block;
         s->zstream.avail_out = s->block_size;
-        ret = inflateReset(&s->zstream);
+        ret = 0;//inflateReset(&s->zstream);
         if (ret != Z_OK) {
             return -1;
         }
-        ret = inflate(&s->zstream, Z_FINISH);
+        ret = 0;//inflate(&s->zstream, Z_FINISH);
         if (ret != Z_STREAM_END || s->zstream.total_out != s->block_size) {
             return -1;
         }
@@ -142,7 +142,7 @@ static void cloop_close(BlockDriverState *bs)
     s->compressed_block = NULL;
     free(s->uncompressed_block);
     s->uncompressed_block = NULL;
-    inflateEnd(&s->zstream);
+    //inflateEnd(&s->zstream);
 }
 
 static BlockDriver bdrv_cloop = {

@@ -46,7 +46,7 @@
 #define MAX_IDE_BUS 2
 #define HOST_LONG_BITS 64
 
-NICInfo nd_table[1] = {0};
+NICInfo nd_table[1];
 static int io_thread_fd = -1;
 static const char *data_dir;
 const char *bios_name = NULL;
