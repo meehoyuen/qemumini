@@ -1795,16 +1795,8 @@ struct KVMState
     bool coalesced_flush_in_progress;
     int broken_set_mem_region;
     int migration_log;
-    int vcpu_events;
-    int robust_singlestep;
-    int debugregs;
-#ifdef KVM_CAP_SET_GUEST_DEBUG
-    struct kvm_sw_breakpoint_head kvm_sw_breakpoints;
-#endif
     int irqchip_in_kernel;
     int pit_in_kernel;
-    int xsave, xcrs;
-    int many_ioeventfds;
 };
 
 KVMState *kvm_state;
@@ -2313,9 +2305,6 @@ int kvm_init(void)
 
     s = calloc(1, sizeof(KVMState));
 
-#ifdef KVM_CAP_SET_GUEST_DEBUG
-    QTAILQ_INIT(&s->kvm_sw_breakpoints);
-#endif
     for (i = 0; i < ARRAY_SIZE(s->slots); i++) {
         s->slots[i].slot = i;
     }
@@ -4039,8 +4028,8 @@ int main(int argc, char **argv, char **envp)
 
     bdrv_init(); //must be called before drive_init()
 
-    drive_init(drive_add(IF_IDE, 1, "/vms/pdisk/win7.qcow2", HD_OPTS));
-    drive_init(drive_add(IF_IDE, 0, "/vms/win7.iso", CDROM_OPTS));
+    drive_init(drive_add(IF_IDE, 1, "image", HD_OPTS));
+    drive_init(drive_add(IF_IDE, 0, "iso", CDROM_OPTS));
 
     data_dir = "./pc-bios/";
     //data_dir = "/usr/local/share/qemu";
@@ -4057,6 +4046,10 @@ int main(int argc, char **argv, char **envp)
     net_check_clients();
 
     kvm_init();
+    if (kvm_init()) {
+        fprintf(stderr, "kvm init failed\n");
+        exit(1);
+    }
 
     qemu_init_cpu_loop();
     if (qemu_init_main_loop()) {
