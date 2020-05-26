@@ -4045,7 +4045,6 @@ int main(int argc, char **argv, char **envp)
     net_init_clients();
     net_check_clients();
 
-    kvm_init();
     if (kvm_init()) {
         fprintf(stderr, "kvm init failed\n");
         exit(1);
