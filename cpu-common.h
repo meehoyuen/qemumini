@@ -2,8 +2,6 @@
 #define CPU_COMMON_H 1
 
 /* CPU interfaces that are target indpendent.  */
-
-typedef uint64_t target_phys_addr_t;
 #define TARGET_PHYS_ADDR_MAX UINT64_MAX
 #define TARGET_FMT_plx "%016" PRIx64
 

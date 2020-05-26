@@ -222,8 +222,6 @@ uint16_t net_checksum_tcpudp(uint16_t length, uint16_t proto,
 typedef struct NetPacket NetPacket;
 typedef struct NetQueue NetQueue;
 
-typedef void (NetPacketSent) (VLANClientState *sender, ssize_t ret);
-
 typedef ssize_t (NetPacketDeliver) (VLANClientState *sender,
                                     unsigned flags,
                                     const uint8_t *buf,
