@@ -2654,6 +2654,7 @@ int vnc_display_open(DisplayState *ds, const char *display)
     dpy = malloc(256);
     vs->lsock = inet_listen(display, dpy, 256, SOCK_STREAM, 5900);
     if (-1 == vs->lsock) {
+        printf("inet_listen %s failed\n", display);
         free(dpy);
         return -1;
     } else {
