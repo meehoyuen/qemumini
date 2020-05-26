@@ -1,7 +1,7 @@
 #include "qemu-common.h"
 #include "block_int.h"
 #include "module.h"
-#include <zlib.h>
+//#include <zlib.h>
 
 typedef struct BDRVCloopState {
     uint32_t block_size;
@@ -11,7 +11,7 @@ typedef struct BDRVCloopState {
     uint32_t current_block;
     uint8_t *compressed_block;
     uint8_t *uncompressed_block;
-    z_stream zstream;
+    //z_stream zstream;
 } BDRVCloopState;
 
 static int cloop_probe(const uint8_t *buf, int buf_size, const char *filename)
@@ -93,7 +93,7 @@ static inline int cloop_read_block(BlockDriverState *bs, int block_num)
         if (ret != bytes) {
             return -1;
         }
-
+#if 0
         s->zstream.next_in = s->compressed_block;
         s->zstream.avail_in = bytes;
         s->zstream.next_out = s->uncompressed_block;
@@ -106,7 +106,7 @@ static inline int cloop_read_block(BlockDriverState *bs, int block_num)
         if (ret != Z_STREAM_END || s->zstream.total_out != s->block_size) {
             return -1;
         }
-
+#endif
         s->current_block = block_num;
     }
     return 0;
