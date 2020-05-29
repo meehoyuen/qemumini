@@ -2898,7 +2898,7 @@ static void hardware_memory_error(void)
 int kvm_arch_on_sigbus_vcpu(CPUState *env, int code, void *addr)
 {
     ram_addr_t ram_addr;
-    target_phys_addr_t paddr;
+    target_phys_addr_t paddr = 0;
 
     if ((env->mcg_cap & MCG_SER_P) && addr
         && (code == BUS_MCEERR_AR || code == BUS_MCEERR_AO)) {
