@@ -39,7 +39,7 @@ typedef struct TimersState {
 
 TimersState timers_state;
 
-void cpu_dump_state(CPUState *env);
+void cpu_dump_state(CPUState *env, FILE *f, fprintf_function cpu_fprintf, int flags);
 
 /* return the host CPU cycle counter and handle stop/restart */
 int64_t cpu_get_ticks(void)
@@ -103,7 +103,7 @@ void hw_error(const char *fmt, ...)
     fprintf(stderr, "\n");
     for(env = first_cpu; env != NULL; env = env->next_cpu) {
         fprintf(stderr, "CPU #%d:\n", env->cpu_index);
-        cpu_dump_state(env);
+        cpu_dump_state(env, stdout, fprintf, 0);
     }
     va_end(ap);
     abort();

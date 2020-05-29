@@ -970,7 +970,7 @@ const char *RunState_lookup[] = {
     NULL,
 };
 void usb_uhci_piix3_init(PCIBus *bus, int devfn);
-void cpu_dump_state(CPUState *env);
+void cpu_dump_state(CPUState *env, FILE *f, fprintf_function cpu_fprintf, int flags);
 
 static RunState current_run_state = RUN_STATE_PRELAUNCH;
 
@@ -2568,7 +2568,7 @@ int kvm_cpu_exec(CPUState *env)
     } while (ret == 0);
 
     if (ret < 0) {
-        cpu_dump_state(env);
+        cpu_dump_state(env, stdout, fprintf, 0);
         vm_stop(RUN_STATE_INTERNAL_ERROR);
     }
 
