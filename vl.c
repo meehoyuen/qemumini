@@ -4028,8 +4028,8 @@ int main(int argc, char **argv, char **envp)
 
     bdrv_init(); //must be called before drive_init()
 
-    drive_init(drive_add(IF_IDE, 1, "image", HD_OPTS));
-    drive_init(drive_add(IF_IDE, 0, "iso", CDROM_OPTS));
+    drive_init(drive_add(IF_IDE, 0, "image", HD_OPTS));
+    drive_init(drive_add(IF_IDE, 1, "iso", CDROM_OPTS));
 
     data_dir = "./pc-bios/";
     //data_dir = "/usr/local/share/qemu";
